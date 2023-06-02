@@ -1,5 +1,6 @@
-import bcrypt from "bcrypt";
-import User from "../models/user.js";
+const bcrypt = require("bcryptjs");
+const User = require("../models/user");
+
 
 //Register User
 
