@@ -9,7 +9,7 @@ const auth_controller = require("../controllers/auth")
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', user: req.user, });
+  res.render('index', { title: 'Members Club', user: req.user, });
   console.log(req.user);
 });
 

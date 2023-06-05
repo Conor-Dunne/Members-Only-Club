@@ -36,6 +36,7 @@ app.set('view engine', 'ejs');
 
 
 //Middleware
+app.use(express.static("stylesheets"));
 
 app.use(session({secret: "cats", resave: false, saveUninitialized: true}));
 app.use(passport.initialize());
@@ -55,6 +56,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/messages', messagesRouter);
 app.use('/users', usersRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
