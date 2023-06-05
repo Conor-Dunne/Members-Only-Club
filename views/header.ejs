@@ -1,5 +1,18 @@
 <nav>
-    <h1>
-        Header!
-    </h1>
+  <header>
+    <nav>
+      <div id="nav-logo">
+        <h1>Secret Club</h1>
+      </div>
+      <ul class="header_menu">
+        <% if (!user) {%>
+        <li><a href="/log-in">Login</a></li>
+        <li><a href="/sign-up">Sign up</a></li>
+        <% } else { %>
+        <h1>WELCOME BACK <%= user.username %></h1>
+        <a href="/log-out">LOG OUT</a>
+        <%}%>
+      </ul>
+    </nav>
+  </header>
 </nav>
