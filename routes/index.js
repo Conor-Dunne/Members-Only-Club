@@ -5,6 +5,7 @@ const passport = require("passport");
 
 // Require controller modules.
 const auth_controller = require("../controllers/auth")
+const message_controller = require("../controllers/messages")
 
 
 /* GET home page. */
@@ -47,6 +48,10 @@ router.get("/log-out", (req, res, next) => {
 //Get Create Message Form
 router.get('/create_message', function(req, res, next) {
   res.render('create_message', {title: 'Create message', user: req.user})
+  console.log(req.user);
 })
+
+// POST request for creating a Message.
+router.post('/create_message', message_controller.message_create_post);
 
 module.exports = router;
