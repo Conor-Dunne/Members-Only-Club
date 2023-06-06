@@ -1,6 +1,8 @@
 .header_nav {
     display: flex;
     overflow: hidden;
+    background-color: black;
+    color:white;
   }
 
   .header__logo {
