@@ -44,4 +44,9 @@ router.get("/log-out", (req, res, next) => {
   });
 });
 
+//Get Create Message Form
+router.get('/create_message', function(req, res, next) {
+  res.render('create_message', {title: 'Create message', user: req.user})
+})
+
 module.exports = router;
