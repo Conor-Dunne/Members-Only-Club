@@ -8,8 +8,26 @@
     <%- include('header'); -%>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <% if (user) {%>
+      <button>
+        <a href="/create_message">Post Message</a>
+      </button>
+    <%}%>
     <% if (!user) {%>
         <h1>please log in</h1>
       <%}%>
+      <ul class="feed">
+        <button>
+          <a href="/new" rel="noopener noreferrer">Add Message</a>
+        </button>
+        <% messages.forEach(function(message) { %>
+          <li><div class="message-box">
+            <h2><%= message.postedBy.username %> </h2>
+            <p><%=message.title %></p>
+             <p class="comment"><%= unescape(message.text)%></p>
+             <p><%= message.timestamp %></p>
+          </div></li>
+        <% }); %>
+      </ul>
   </body>
 </html>

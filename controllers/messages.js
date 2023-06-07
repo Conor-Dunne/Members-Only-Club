@@ -3,6 +3,14 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
 
+//Get list all messages from DB
+exports.message_list = asyncHandler(async(req, res, next) => {
+  const allMessages = await Message.find().populate("postedBy").exec();
+  console.log(allMessages);
+  return allMessages
+})
+
+
 //Display Message create from on GET
 exports.message_create_get = asyncHandler(async (req, res, next) => {
   
@@ -18,14 +26,7 @@ exports.message_create_get = asyncHandler(async (req, res, next) => {
 //Handle Message create on POST
 exports.message_create_post = [
 
-  // Authentication middleware to ensure the user is logged in
-  function(req, res, next) {
-    if (!req.user) {
-      // User is not authenticated, handle the error or redirect to login
-      return res.redirect("/login");
-    }
-    next();
-  },
+  
 
     // Validate and sanitize fields.
     body("title", "Title must be specified").trim().isLength({ min: 1 }).escape(),

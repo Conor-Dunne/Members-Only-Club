@@ -9,9 +9,17 @@ const message_controller = require("../controllers/messages")
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Members Club', user: req.user, });
-  console.log(req.user);
+router.get('/', async function(req, res, next) {
+  try {
+    // Retrieve all messages from the database
+    const messages = await message_controller.message_list();
+    console.log(messages)
+    res.render('index', { title: 'Members Club', user: req.user, messages: messages });
+  } catch (err) {
+    console.error(err);
+    // Handle the error
+    next(err);
+  }
 });
 
 
