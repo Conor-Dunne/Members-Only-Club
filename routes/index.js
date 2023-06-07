@@ -46,10 +46,7 @@ router.get("/log-out", (req, res, next) => {
 });
 
 //Get Create Message Form
-router.get('/create_message', function(req, res, next) {
-  res.render('create_message', {title: 'Create message', user: req.user})
-  console.log(req.user);
-})
+router.get('/create_message', message_controller.message_create_get)
 
 // POST request for creating a Message.
 router.post('/create_message', message_controller.message_create_post);
