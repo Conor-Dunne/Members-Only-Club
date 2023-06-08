@@ -6,7 +6,6 @@ const { body, validationResult } = require("express-validator");
 //Get list all messages from DB
 exports.message_list = asyncHandler(async(req, res, next) => {
   const allMessages = await Message.find().populate("postedBy").exec();
-  console.log(allMessages);
   return allMessages
 })
 
@@ -53,7 +52,6 @@ exports.message_create_post = [
         return;
       } else {
         await message.save();
-        console.log(req._id)
         // New message saved. Redirect to index.
         res.redirect("/");
      }}),
