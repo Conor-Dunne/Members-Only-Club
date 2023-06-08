@@ -19,17 +19,17 @@
       <ul class="feed">
         <% messages.forEach(function(message) { %>
           <li><div class="message-box">
-            <% if (typeof user.isMember === 'undefined') {%>
+            <% if (!user || typeof user.isMember === 'undefined') {%>
               <h2>Anon</h2>
             <% } else { %>
               <h2><%= message.postedBy.username %> </h2>
               <% } %>
             <p><%=message.title %></p>
              <p class="comment"><%= message.text%></p>
-             <% if (typeof user.isMember === 'undefined') {%>
+             <% if (!user || typeof user.isMember === 'undefined') {%>
               <p>--:--</p>
             <% } else { %>
-              <h2><%= message.timestamp %> </h2>
+              <p><%= message.timestamp %> </p>
               <% } %>
           </div></li>
         <% }); %>
