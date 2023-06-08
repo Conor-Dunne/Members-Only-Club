@@ -17,15 +17,20 @@
         <h1>please log in</h1>
       <%}%>
       <ul class="feed">
-        <button>
-          <a href="/new" rel="noopener noreferrer">Add Message</a>
-        </button>
         <% messages.forEach(function(message) { %>
           <li><div class="message-box">
-            <h2><%= message.postedBy.username %> </h2>
+            <% if (typeof user.isMember === 'undefined') {%>
+              <h2>Anon</h2>
+            <% } else { %>
+              <h2><%= message.postedBy.username %> </h2>
+              <% } %>
             <p><%=message.title %></p>
-             <p class="comment"><%= unescape(message.text)%></p>
-             <p><%= message.timestamp %></p>
+             <p class="comment"><%= message.text%></p>
+             <% if (typeof user.isMember === 'undefined') {%>
+              <p>--:--</p>
+            <% } else { %>
+              <h2><%= message.timestamp %> </h2>
+              <% } %>
           </div></li>
         <% }); %>
       </ul>
