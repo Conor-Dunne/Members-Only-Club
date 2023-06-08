@@ -24,12 +24,12 @@
             <% } else { %>
               <h2><%= message.postedBy.username %> </h2>
               <% } %>
-            <p><%=message.title %></p>
+            <h3><%=message.title %></h3>
              <p class="comment"><p><%- message.text %></p></p>
              <% if (!user || typeof user.isMember === 'undefined') {%>
-              <p>--:--</p>
+              <h4>--:--</h4>
             <% } else { %>
-              <p><%= message.timestamp %> </p>
+              <h4><%= message.timestamp %> </h4>
               <% } %>
           </div></li>
         <% }); %>

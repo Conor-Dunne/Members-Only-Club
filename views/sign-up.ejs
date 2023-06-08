@@ -5,16 +5,20 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <div class="signup__form">
     <h1><%= title %></h1>
-    <p><%= title %></p>
-    <form action="" method="POST">
+    <form  action="" method="POST">
       <label for="username">Username</label>
       <input name="username" placeholder="username" type="text" />
       <label for="password">Password</label>
       <input name="password" type="password" />
+      <label for="confirm-password">Confirm Password</label>
+      <input name="confirm-password" type="password" />
+
       <button>Sign Up</button>
     </form>
     <p>Already have an account? <a href="/log-in">Login here</a></p>
     <p><a href="/"><< Back</a></p>
+  </div>
   </body>
 </html>
