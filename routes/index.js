@@ -28,7 +28,7 @@ router.get('/log-in', function(req, res, next){
 });
 
 router.get('/sign-up', function(req, res, next) {
-  res.render('sign-up', {title: 'Sign Up'})
+  res.render('sign-up', {title: 'Sign Up', errors: null})
 })
 
 // POST request for creating a User.

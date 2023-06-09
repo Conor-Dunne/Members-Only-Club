@@ -63,3 +63,7 @@ a {
 li {
   list-style: none;
 }
+
+.error-message {
+  color: red;
+}
