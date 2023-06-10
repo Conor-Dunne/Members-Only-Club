@@ -60,3 +60,11 @@ router.get('/create_message', message_controller.message_create_get)
 router.post('/create_message', message_controller.message_create_post);
 
 module.exports = router;
+
+//Get member page
+router.get('/member', function(req, res, next) {
+  res.render('member',  {
+    title: "Become a member",
+    user: req.user
+  })
+});
