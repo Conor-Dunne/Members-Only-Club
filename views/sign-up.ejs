@@ -5,15 +5,16 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div class="signup__form">
+    <%- include('header'); -%>
+    <div class="user__form">
     <h1><%= title %></h1>
     <form  action="" method="POST">
       <label for="username">Username</label>
       <input name="username" placeholder="username" type="text" />
       <label for="password">Password</label>
-      <input name="password" type="password" />
+      <input name="password" type="password" placeholder="password" />
       <label for="confirm-password">Confirm Password</label>
-      <input name="confirm-password" type="password" />
+      <input name="confirm-password" type="password" placeholder="password" />
       <% if (errors && errors.length > 0) { %>
         <ul>
           <% errors.forEach(error => { %>

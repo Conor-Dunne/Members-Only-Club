@@ -1,4 +1,4 @@
-.signup__form {
+.user__form {
     width: 300px;
     margin: 0 auto;
     padding-top: 30px;
@@ -7,7 +7,7 @@
     gap: 30px;
 }
 
-.signup__form > form {
+.user__form > form {
     display: flex;
     flex-direction: column;
     gap: 5px;

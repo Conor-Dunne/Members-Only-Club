@@ -15,6 +15,22 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top {
+  display: flex;
+  gap: 10px;
+  padding: 30px;
+}
+
+.top > button {
+  padding: 5px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -29,12 +45,12 @@ a {
 .message-box {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 1px 4px rgba(1,1,1,.15);
+  box-shadow: 0 1px 4px rgba(1, 1, 1, 0.15);
   background: white;
   padding: 20px 50px;
   border-radius: 5px;
   color: rgb(44, 44, 44);
-  max-width: 400px;
+  width: 100%;
   gap: 8px;
 }
 

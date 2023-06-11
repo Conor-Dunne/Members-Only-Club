@@ -24,11 +24,11 @@ router.get('/', async function(req, res, next) {
 
 
 router.get('/log-in', function(req, res, next){
-  res.render('log-in', {title: 'Login'} )
+  res.render('log-in', {title: 'Login', user: null} )
 });
 
 router.get('/sign-up', function(req, res, next) {
-  res.render('sign-up', {title: 'Sign Up', errors: null})
+  res.render('sign-up', {title: 'Sign Up', errors: null,  user: null})
 })
 
 // POST request for creating a User.

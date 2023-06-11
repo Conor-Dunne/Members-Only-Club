@@ -6,37 +6,41 @@
   </head>
   <body>
     <%- include('header'); -%>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <% if (user) {%>
-      <button>
-        <a href="/create_message">Post Message</a>
-      </button>
-      <% if (user && !user.isMember) { %><button>
-        <a href="/member">Be a member!</a>
-      </button>
-    <% } %>
+    <div class="main">
+<div class="top">
+  <h1>Welcome to the <%= title %></h1>
+  <% if (user) {%>
+    <button>
+      <a href="/create_message">Post Message</a>
+    </button>
+    <% if (user && !user.isMember) { %><button>
+      <a href="/member">Be a member!</a>
+    </button>
+  <% } %>
+  <%}%>
+  <% if (!user) {%>
+      <h1>please log in</h1>
     <%}%>
-    <% if (!user) {%>
-        <h1>please log in</h1>
-      <%}%>
-      <ul class="feed">
-        <% messages.forEach(function(message) { %>
-          <li><div class="message-box">
-            <% if (!user || !user.isMember) {%>
-              <h2>Anon</h2>
-            <% } else { %>
-              <h2><%= message.postedBy.username %> </h2>
-              <% } %>
-            <h3><%=message.title %></h3>
-             <p class="comment"><p><%- message.text %></p></p>
-             <% if (!user || !user.isMember) {%>
-              <h4>--:--</h4>
-            <% } else { %>
-              <h4><%= message.timestamp %> </h4>
-              <% } %>
-          </div></li>
-        <% }); %>
-      </ul>
+</div>
+        <ul class="feed">
+          <% messages.forEach(function(message) { %>
+            <li><div class="message-box">
+              <% if (!user || !user.isMember) {%>
+                <h2>Anon</h2>
+              <% } else { %>
+                <h2><%= message.postedBy.username %> </h2>
+                <% } %>
+              <h3><%=message.title %></h3>
+               <p class="comment"><p><%- message.text %></p></p>
+               <% if (!user || !user.isMember) {%>
+                <h4>--:--</h4>
+              <% } else { %>
+                <h4><%= message.timestamp %> </h4>
+                <% } %>
+            </div></li>
+          <% }); %>
+        </ul>
+  
+    </div>
   </body>
 </html>
