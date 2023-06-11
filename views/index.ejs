@@ -12,9 +12,10 @@
       <button>
         <a href="/create_message">Post Message</a>
       </button>
-      <button>
+      <% if (user && !user.isMember) { %><button>
         <a href="/member">Be a member!</a>
       </button>
+    <% } %>
     <%}%>
     <% if (!user) {%>
         <h1>please log in</h1>
