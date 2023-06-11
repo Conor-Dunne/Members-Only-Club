@@ -12,6 +12,9 @@
       <button>
         <a href="/create_message">Post Message</a>
       </button>
+      <button>
+        <a href="/member">Be a member!</a>
+      </button>
     <%}%>
     <% if (!user) {%>
         <h1>please log in</h1>
@@ -19,14 +22,14 @@
       <ul class="feed">
         <% messages.forEach(function(message) { %>
           <li><div class="message-box">
-            <% if (!user || typeof user.isMember === 'undefined') {%>
+            <% if (!user || !user.isMember) {%>
               <h2>Anon</h2>
             <% } else { %>
               <h2><%= message.postedBy.username %> </h2>
               <% } %>
             <h3><%=message.title %></h3>
              <p class="comment"><p><%- message.text %></p></p>
-             <% if (!user || typeof user.isMember === 'undefined') {%>
+             <% if (!user || !user.isMember) {%>
               <h4>--:--</h4>
             <% } else { %>
               <h4><%= message.timestamp %> </h4>

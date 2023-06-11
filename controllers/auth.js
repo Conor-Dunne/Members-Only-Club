@@ -14,7 +14,7 @@ exports.register_user = async(req, res, next) => {
         .withMessage('Password must be at least 4 characters long')
         .run(req);
   
-    await body('passwordConfirmation')
+    await body('confirm-password')
       .equals(req.body.password)
       .withMessage('Password confirmation does not match')
       .run(req);
