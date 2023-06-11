@@ -5,7 +5,6 @@ const asyncHandler = require("express-async-handler");
 exports.update_memberstatus = asyncHandler(async(req, res, next) => {
     try {
         // Find the user document by id
-        console.log(req.user)
         const user = await User.findById(req.user._id);
     
         if (user) {

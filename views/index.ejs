@@ -19,7 +19,7 @@
   <% } %>
   <%}%>
   <% if (!user) {%>
-      <h1>please log in</h1>
+      <h3>Please log in or sign up to see more!</h3>
     <%}%>
 </div>
         <ul class="feed">
@@ -30,13 +30,14 @@
               <% } else { %>
                 <h2><%= message.postedBy.username %> </h2>
                 <% } %>
-              <h3><%=message.title %></h3>
+                <% if (!user || !user.isMember) {%>
+                  <h4>--:--</h4>
+                <% } else { %>
+                  <h4><%= message.timestamp %> </h4>
+                  <% } %>  
+                <hr>
+              <h4><%=message.title %></h4>
                <p class="comment"><p><%- message.text %></p></p>
-               <% if (!user || !user.isMember) {%>
-                <h4>--:--</h4>
-              <% } else { %>
-                <h4><%= message.timestamp %> </h4>
-                <% } %>
             </div></li>
           <% }); %>
         </ul>
