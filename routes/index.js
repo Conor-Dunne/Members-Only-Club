@@ -6,6 +6,7 @@ const passport = require("passport");
 // Require controller modules.
 const auth_controller = require("../controllers/auth")
 const message_controller = require("../controllers/messages")
+const member_controller = require("../controllers/member")
 
 
 /* GET home page. */
@@ -68,3 +69,6 @@ router.get('/member', function(req, res, next) {
     user: req.user
   })
 });
+
+//POST request for updating member status
+router.post('/member', member_controller.update_memberstatus);

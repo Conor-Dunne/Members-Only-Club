@@ -1,5 +1,6 @@
 .user__form {
-    width: 300px;
+    min-width: 300px;
+    max-width: 400px;
     margin: 0 auto;
     padding-top: 30px;
     display: flex;
@@ -11,4 +12,8 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.user__form > h1, h2 {
+    align-self: center;
 }
