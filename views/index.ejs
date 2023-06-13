@@ -10,12 +10,14 @@
 <div class="top">
   <h1>Welcome to the <%= title %> 🍸</h1>
   <% if (user) {%>
-    <button>
-      <a href="/create_message">Post Message</a>
-    </button>
-    <% if (user && !user.isMember) { %><button>
-      <a href="/member">Be a member!</a>
-    </button>
+    <div class="btn-wrapper">
+      <button class="post-btn">
+        <a href="/create_message">Post Message</a>
+      </button>
+      <% if (user && !user.isMember) { %><button class="member-btn">
+        <a href="/member">Be a member!</a>
+      </button>
+    </div>
   <% } %>
   <%}%>
   <% if (!user) {%>
