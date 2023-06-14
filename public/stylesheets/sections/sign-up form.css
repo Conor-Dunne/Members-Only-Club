@@ -18,7 +18,8 @@
     align-self: center;
 }
 
-input {
+input,
+textarea {
     width: 100%;
     height: 40px;
     padding: 1px 5px;
