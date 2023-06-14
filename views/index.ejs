@@ -1,49 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <%- include('header'); -%>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <%- include('header'); -%>
     <div class="main">
-<div class="top">
-  <h1>Welcome to the <%= title %> 🍸</h1>
-  <% if (user) {%>
-    <div class="btn-wrapper">
-      <button class="post-btn">
-        <a href="/create_message">Post Message</a>
-      </button>
-      <% if (user && !user.isMember) { %><button class="member-btn">
-        <a href="/member">Be a member!</a>
-      </button>
-    </div>
-  <% } %>
-  <%}%>
-  <% if (!user) {%>
-      <h3 class="information">Please <span class="orange-text">log in</span > or <span class="orange-text">sign up</span> to see more!</h3>
-    <%}%>
-</div>
-        <ul class="feed">
-          <% messages.forEach(function(message) { %>
-            <li><div class="message-box">
+      <div class="top">
+        <h1>Welcome to the <%= title %> 🍸</h1>
+        <% if (user) {%>
+          <div class="btn-wrapper">
+            <button class="post-btn">
+              <a href="/create_message">Post Message</a>
+            </button>
+            <% if (user && !user.isMember) { %><button class="member-btn">
+                <a href="/member">Be a member!</a>
+              </button>
+          </div>
+          <% } %>
+            <%}%>
+              <% if (!user) {%>
+                <h3 class="information">Please <a href="/log-in"> <span class="orange-text">log in</span></a> or <a
+                    href="/sign-up"><span class="orange-text">sign up</span></a> to reveal more</h3>
+                <%}%>
+      </div>
+      <ul class="feed">
+        <% messages.forEach(function(message) { %>
+          <li>
+            <div class="message-box">
               <% if (!user || !user.isMember) {%>
                 <h2>Anon</h2>
-              <% } else { %>
-                <h2><%= message.postedBy.username %> </h2>
-                <% } %>
-                <% if (!user || !user.isMember) {%>
-                  <h4>--:--</h4>
                 <% } else { %>
-                  <h4><%= message.timestamp %> </h4>
-                  <% } %>  
-                <hr>
-              <h4><%=message.title %></h4>
-               <p class="comment"><p><%- message.text %></p></p>
-            </div></li>
+                  <h2>
+                    <%= message.postedBy.username %>
+                  </h2>
+                  <% } %>
+                    <% if (!user || !user.isMember) {%>
+                      <h4>--:--</h4>
+                      <% } else { %>
+                        <h4>
+                          <%= message.timestamp %>
+                        </h4>
+                        <% } %>
+                          <hr>
+                          <h4>
+                            <%=message.title %>
+                          </h4>
+                          <p class="comment">
+                          <p><%- message.text %></p>
+                          </p>
+            </div>
+          </li>
           <% }); %>
-        </ul>
-  
+      </ul>
+
     </div>
-  </body>
+</body>
+
 </html>
