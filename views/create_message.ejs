@@ -6,16 +6,13 @@
   </head>
   <body>
     <%- include('header'); -%>
-    <form class="user__form" method="post" action="">
-      <h1><%= title %></h1>
-      <label for="title">
-      </label>
-      <input type="text" id="title" name="title" placeholder="Title" required>
-
-      <label for="message">
-      </label>
-      <input type="text" id="message" name="text" placeholder="What's on your mind?" required></input>
-      <button type="submit">Submit</button>
-  </form>
+    <div class="user__form">
+      <form  method="post" action="">
+        <h1><%= title %></h1>
+        <input type="text" id="title" name="title" placeholder="Title" required>
+        <input type="text" id="message" name="text" placeholder="What's on your mind?" required></input>
+        <button type="submit">Submit</button>
+    </form>
+    </div>    
   </body>
 </html>

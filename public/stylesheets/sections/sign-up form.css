@@ -12,7 +12,7 @@
 .user__form > form {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
 .user__form > h1, .user__form > h2 {
@@ -38,7 +38,6 @@ input:focus {
 button[type="submit"] {
     display: block;
     width: 100%;
-    margin: 1em 0 1em auto;
     height: 3em;
     font-size: 1.5rem;
     background-color: orangered;

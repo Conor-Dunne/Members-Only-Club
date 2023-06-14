@@ -70,17 +70,14 @@ passport.use(
     try {
       const user = await User.findOne({ username: username });
       if (!user) {
-        console.log("Incorrect username")
         return done(null, false, { message: "Incorrect username" });
       };
       bcrypt.compare(password, user.password, (err, res) => {
         if (res) {
           // passwords match! log user in
-          console.log(`Welcome ${username}`);
           return done(null, user)
         } else {
           // passwords do not match!
-          console.log("Incorrect password")
           return done(null, false, { message: "Incorrect password" })
         }
       })
