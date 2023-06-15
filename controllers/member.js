@@ -29,8 +29,8 @@ exports.update_memberstatus = [
           // Update the 'isMember' field to true
           user.isMember = true;
           await user.save();
-    
-          return res.json({ message: 'User is now a member' });
+          res.redirect('/welcome')
+          // return res.json({ message: 'User is now a member' });
         } else {
           return res.status(404).json({ message: 'Wrong password!' });
         }

@@ -72,3 +72,9 @@ router.get('/member', function(req, res, next) {
 
 //POST request for updating member status
 router.post('/member', member_controller.update_memberstatus);
+
+router.get('/welcome' , function(req, res, next) {
+  res.render('member-welcome', {
+    user: req.user
+  })
+} )

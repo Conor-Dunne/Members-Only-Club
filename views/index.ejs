@@ -33,6 +33,7 @@
         <% messages.forEach(function(message) { %>
           <li>
             <div class="message-box">
+              <!-- Hide poster's name from  non members and non users -->
               <% if (!user || !user.isMember) {%>
                 <h2>Anon</h2>
                 <% } else { %>
@@ -43,12 +44,12 @@
                     <% if (!user || !user.isMember) {%>
                       <h4>--:--</h4>
                       <% } else { %>
-                        <h4>
+                        <h5>
                           <%= message.timestamp %>
-                        </h4>
+                        </h5>
                         <% } %>
                           <hr>
-                          <h4>
+                          <h4 class="message-title">
                             <%=message.title %>
                           </h4>
                           <p class="comment">
