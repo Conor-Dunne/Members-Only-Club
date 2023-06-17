@@ -25,7 +25,9 @@ router.get('/', async function(req, res, next) {
 
 
 router.get('/log-in', function(req, res, next){
-  res.render('log-in', {title: 'Login', user: null} )
+  const message = req.session.message;
+  req.session.message = undefined; // Clear the session variable
+  res.render('log-in', {title: 'Login', user: null, message: message} )
 });
 
 router.get('/sign-up', function(req, res, next) {

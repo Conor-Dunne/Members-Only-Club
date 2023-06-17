@@ -40,7 +40,8 @@ exports.register_user = async(req, res, next) => {
                 password: hashedpassword
             });
             const result = await user.save();
-            res.redirect("/");
+            req.session.message = "Thank you for registering. You can now log in to your account.";
+            res.redirect("/log-in");
         })
     } catch(err) {
         return next(err);
