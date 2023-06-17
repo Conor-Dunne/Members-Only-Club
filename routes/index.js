@@ -38,13 +38,24 @@ router.get('/sign-up', function(req, res, next) {
 router.post('/sign-up', auth_controller.register_user);
 
 //POST request for log-in.
-router.post(
-  "/log-in",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/log-in"
-  })
-);
+router.post("/log-in", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      const message = info.message;
+      return res.render("log-in", {title: 'Login', user: null, message: message});
+    }
+    req.logIn(user, (err) => {
+      if (err) {
+        return next(err);
+      }
+      return res.redirect("/");
+    });
+  })(req, res, next);
+});
+
 
 //Log out
 router.get("/log-out", (req, res, next) => {
