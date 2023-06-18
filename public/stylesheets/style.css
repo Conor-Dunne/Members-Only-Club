@@ -122,4 +122,5 @@ a {
 
 .error-message {
   color: red;
+  font-weight: 300;
 }
