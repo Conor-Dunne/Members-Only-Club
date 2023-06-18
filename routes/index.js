@@ -77,9 +77,12 @@ module.exports = router;
 
 //Get member page
 router.get('/member', function(req, res, next) {
+  const message = req.session.message;
+  req.session.message = undefined; // Clear the session variable
   res.render('member',  {
     title: "Become a member",
-    user: req.user
+    user: req.user,
+    message: message,
   })
 });
 

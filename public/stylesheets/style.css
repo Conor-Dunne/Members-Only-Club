@@ -123,4 +123,5 @@ a {
 .error-message {
   color: red;
   font-weight: 300;
+  list-style: none;
 }

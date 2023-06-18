@@ -25,6 +25,7 @@ exports.register_user = async(req, res, next) => {
       // There are validation errors, render the registration form again with error messages
       res.render('sign-up', {
         title: 'User Registration',
+        user: null,
         errors: errors.array(),
       });
       return;

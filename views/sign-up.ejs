@@ -9,9 +9,9 @@
     <div class="user__form">
     <h1><%= title %></h1>
     <form  action="" method="POST">
-      <input name="username" placeholder="username" type="text" />
-      <input name="password" type="password" placeholder="password" />
-      <input name="confirm-password" type="password" placeholder="confirm password" />
+      <input name="username" placeholder="username" type="text" required />
+      <input name="password" type="password" placeholder="password" required />
+      <input name="confirm-password" type="password" placeholder="confirm password" required />
       <% if (errors && errors.length > 0) { %>
         <ul>
           <% errors.forEach(error => { %>

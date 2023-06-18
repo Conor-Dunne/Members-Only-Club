@@ -32,6 +32,8 @@ exports.update_memberstatus = [
           res.redirect('/welcome')
           // return res.json({ message: 'User is now a member' });
         } else {
+          req.session.message ='Wrong password!'
+          res.redirect('/member')
           return res.status(404).json({ message: 'Wrong password!' });
         }
       } catch (error) {
