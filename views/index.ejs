@@ -12,8 +12,8 @@
   <%- include('header'); -%>
     <div class="main">
       <div class="top">
-        <h1>Welcome to the <%= title %> 🍸</h1>
         <% if (user) {%>
+          <h1>Welcome to the <%= title %> <%= user.username %> 🍸</h1>
           <div class="btn-wrapper">
             <button class="post-btn">
               <a href="/create_message">Post Message</a>
