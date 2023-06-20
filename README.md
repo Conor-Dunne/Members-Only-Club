@@ -2,7 +2,8 @@
 
 The Clubhouse Anonymous Posts project aims to create an exclusive clubhouse where members can write anonymous posts. Inside the clubhouse, members can identify the authors of the posts, while outside viewers can only read the stories without knowing the authors' identities. This project focuses on implementing authentication and database management skills.
 
-## PC Screen
+# Screenshot
+
 ![Screenshot](./public/images/screenshot.PNG)
 
 # Technologies Used
