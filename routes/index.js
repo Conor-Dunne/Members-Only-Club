@@ -14,7 +14,6 @@ router.get('/', async function(req, res, next) {
   try {
     // Retrieve all messages from the database
     const messages = await message_controller.message_list();
-    console.log(messages)
     res.render('index', { title: 'Secret Club', user: req.user, messages: messages });
   } catch (err) {
     console.error(err);
