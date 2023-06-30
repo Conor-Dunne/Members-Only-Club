@@ -125,3 +125,14 @@ a {
   font-weight: 300;
   list-style: none;
 }
+
+@media only screen and (max-width: 760px) {
+  .feed {
+    width: unset;
+  }
+
+  .message-box {
+    padding: 20px 20px;
+  }
+
+}
